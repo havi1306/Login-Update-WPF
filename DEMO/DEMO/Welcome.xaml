@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEMO"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" x:Class="DEMO.Welcome"
+        mc:Ignorable="d"
+        Title="Welcome" Height="450" Width="800">
+    <Grid>
+        <dxg:GridControl x:Name="gridControl1" ItemsSource="{Binding ListUser}" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" RenderTransformOrigin="0.506,0.618">
+            <dxg:GridControl.View>
+                <dxg:TableView  ShowTotalSummary="True" Margin="0,0,0,169" KeyDown="TableView_KeyDown" CellValueChanged="TableView_CellValueChanged" EditFormPostConfirmation="YesNo" AllowEditing="True" KeyUp="TableView_KeyUp"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Iduser" Binding="{Binding IdUser}" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Username"  Binding="{Binding UserName}" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Password"  Binding="{Binding PassWord}" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Firstname"  Binding="{Binding FirstName, Mode=TwoWay}" IsSmart="True" AllowEditing="true"/>
+            <dxg:GridColumn FieldName="Lastname"  Binding="{Binding LastName, Mode=TwoWay}" IsSmart="True" AllowEditing="true"/>
+            <dxg:GridColumn FieldName="Age"  Binding="{Binding Age}" IsSmart="True"/>
+            <dxg:GridColumn FieldName="Email"  Binding="{Binding Email}" IsSmart="True"/>
+        </dxg:GridControl>
+        <Button Content="Previous" HorizontalAlignment="Left" Margin="302,373,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="426,373,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="238,408,0,0" x:Name="errormessage" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
